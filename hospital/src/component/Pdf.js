@@ -68,6 +68,8 @@ const Pdf = () => {
 
     const Serology = formData.CRP;
 
+    const Thyroid = formData.T4 || formData.T3 || formData.freeT3 || formData.freeT4 || formData.TSH;
+
     const result = formData.Total_Cholestrol / formData.HDL_Cholestrol;
     const roundedResult = result.toFixed(2);
 
@@ -515,6 +517,7 @@ const Pdf = () => {
                             <td>2.8 - 4.5</td> 
                             <td>mg/dl</td>
                         </tr>}
+
                         {lvr_function && <tr className="head-div">
                             <th colspan="4">Liver Function Test</th>
                         </tr>}
@@ -572,6 +575,45 @@ const Pdf = () => {
                             <td>2 - 3.5</td> 
                             <td>gm/dl</td>
                         </tr> }
+
+
+
+
+                        {Thyroid && <tr className="head-div">
+                            <th colspan="4">Thyroid Function Test</th>
+                        </tr>}
+                        {formData.TSH && <tr>
+                            <td>TSH</td>
+                            <td>{formData.TSH}</td>
+                            <td>0.45 - 4.12</td> 
+                            <td>mI/dl</td>
+                        </tr> }
+                        {formData.T3 && <tr>
+                            <td>T3</td>
+                            <td>{formData.T3}</td>
+                            <td>0.8 - 2.0</td> 
+                            <td>ng/ml</td>
+                        </tr>} 
+                        {formData.T4 && <tr>
+                            <td>T4</td>
+                            <td>{formData.T4}</td>
+                            <td>4.5 - 9.8</td> 
+                            <td>ug/dl</td>
+                        </tr>}
+                        {formData.freeT3 && <tr>
+                            <td>Free T3</td>
+                            <td>{formData.freeT3}</td>
+                            <td>2.8 - 4.0</td> 
+                            <td>pg/dl</td>
+                        </tr> }
+                        {formData.freeT4 && <tr>
+                            <td>Free T4</td>
+                            <td>{formData.freeT4}</td>
+                            <td>0.93 - 1.70</td> 
+                            <td>ng/dl</td>
+                        </tr>}
+
+
 
                         {Serology && <tr className="head-div">
                             <th colspan="4">Serology</th>

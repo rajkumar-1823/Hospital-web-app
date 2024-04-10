@@ -76,6 +76,14 @@ const Form = () => {
         Serum_Creatinine:null,
         Serum_Uricacid:null,
 
+        //Thyroid Function Test
+        TSH:null,
+        T3:null,
+        T4:null,
+        freeT3:null,
+        freeT4:null,
+
+
         //Serology
         CRP:null,
 
@@ -370,6 +378,41 @@ const Form = () => {
                                     <label>VLDL Cholestrol</label>
                                     <input type="number" min="0" 
         max="5000" step="0.01" name="VLDL_Cholestrol" onChange={handleChange}/>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div className="reports2">
+                            <div className="txt-field2">
+                                <h4>Thyroid Function Test</h4>
+                            </div>
+                            <div className="report-fields2">
+                            
+                                <div className="fields-all2">
+                                    <label>TSH</label>
+                                    <input type="number" min="0" 
+        max="5000" step="0.01" name="TSH" onChange={handleChange}/>
+                                </div>
+                                <div className="fields-all2">
+                                    <label>T3</label>
+                                    <input type="number" min="0" 
+        max="5000" step="0.01" name="T3" onChange={handleChange}/>
+                                </div>
+                                <div className="fields-all2">
+                                    <label>T4</label>
+                                    <input type="number" min="0" 
+        max="5000" step="0.01" name="T4" onChange={handleChange}/>
+                                </div>
+                                <div className="fields-all2">
+                                    <label>Free T3</label>
+                                    <input type="number" min="0" 
+        max="5000" step="0.01" name="freeT3" onChange={handleChange}/>
+                                </div>
+                                <div className="fields-all2">
+                                    <label>Free T4</label>
+                                    <input type="number" min="0" 
+        max="5000" step="0.01" name="freeT4" onChange={handleChange}/>
                                 </div>
                             </div>
                         </div>
