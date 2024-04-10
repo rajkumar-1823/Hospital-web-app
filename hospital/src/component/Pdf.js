@@ -586,7 +586,7 @@ const Pdf = () => {
                             <td>TSH</td>
                             <td>{formData.TSH}</td>
                             <td>0.45 - 4.12</td> 
-                            <td>mI/dl</td>
+                            <td>mI/ul</td>
                         </tr> }
                         {formData.T3 && <tr>
                             <td>T3</td>
@@ -610,7 +610,7 @@ const Pdf = () => {
                             <td>Free T4</td>
                             <td>{formData.freeT4}</td>
                             <td>0.93 - 1.70</td> 
-                            <td>ng/dl</td>
+                            <td>pg/dl</td>
                         </tr>}
 
 
