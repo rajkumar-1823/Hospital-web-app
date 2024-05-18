@@ -23,15 +23,15 @@ const Record = () => {
                 <div class="record-txt">
                     <h3>Patients Record Table</h3>
                 </div>
-                <div className="search">
-                    <div className="search-box">
-                        <input type="text" placeholder="Search"/> 
-                        <button>
-                            <FontAwesomeIcon className='search-icon' icon={faMagnifyingGlass} />
-                        </button>
+                // <div className="search">
+                //     <div className="search-box">
+                //         <input type="text" placeholder="Search"/> 
+                //         <button>
+                //             <FontAwesomeIcon className='search-icon' icon={faMagnifyingGlass} />
+                //         </button>
                         
-                    </div>
-                </div>
+                //     </div>
+                // </div>
                 <div className="tables">
                     <table>
                         <thead>
