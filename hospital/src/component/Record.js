@@ -41,7 +41,7 @@ const Record = () => {
                                 <th>Date Of Birth</th>
                                 <th>Contact No.</th>
                                 <th>Date Added</th>
-                                <th>Action</th>
+                                {/* <th>Action</th> */}
                             </tr>
                         </thead>
                         <tbody>
@@ -53,12 +53,12 @@ const Record = () => {
                                                 <td>{data.age}</td>
                                                 <td>{data.contact}</td>
                                                 <td>{data.date_added}</td>
-                                                <td>
+                                                {/* <td>
                                                     <div className="btn">
                                                         <button type="submit" className="update">Update</button>
                                                         <button type="submit" className='view-btn'>Download</button>
                                                     </div>
-                                                </td>
+                                                </td> */}
                                             </tr>
                                     })
                             }

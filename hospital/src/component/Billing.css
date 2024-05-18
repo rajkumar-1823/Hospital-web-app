@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    user-select: none;
+}
+.body5 {
+    background-color: #f4f4f4;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.bill-body {
+    background-color: #fff;
+    padding: 20px;
+    width: 100%;
+    max-width: 800px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.head, .bill-cum-res, .pat-details, .payment-type, .inv-detail, .overall-amt {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+}
+.head h2, .head h4, .head h5, .bill-cum-res h3, .payment-type h3, .overall-amt h3 {
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+.bill-cum-res h3{
+    font-weight: 400;
+    font-size: 14px;
+}
+.bill-cum-res h4{
+    font-weight: 500;
+    text-align: center;
+}
+.head h2 {
+    font-size: 24px;
+}
+.main-val {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+.det1, .det2 {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.pat-details table, .inv-detail table {
+    width: 100%;
+    margin: 0 auto;
+    
+    
+}
+.pat-details table th, .pat-details table td, .inv-detail table th, .inv-detail table td {
+    padding: 8px;
+    border: none;
+    text-align: left;
+}
+.pat-details table th, .inv-detail table th{
+    font-weight: 500;
+}
+table{
+    width: 100%;
+    
+}
+.overall-amt {
+    text-align: right;
+}
+.overall-amt .fin {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 50px;
+}
+.overall-amt .fin h3 {
+    font-weight: 400;
+}
+.sub-btn{
+    width: 55%;
+    margin: 5px;
+    text-align: right;
+}
+.sub-btn button{
+    padding: 10px;
+    margin: 5px;
+    width: 10%;
+    font-size: 16px;
+    background-color: black;
+    color: white;
+    border-radius: 0 5px 0 5px;
+    cursor: pointer;
+}
+.sub-btn button:hover{
+    background-color: white;
+    color: black;
+}
+
+.bills, .bills-item {
+    text-align: center;
+    padding: 20px;
+    margin: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.bills h3, .bills-item h3 {
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.bills input, .bills-item input {
+    padding: 10px;
+    width: calc(100% - 24px);
+    max-width: 400px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    font-size: 16px;
+}
+
+.bills button, .bills-item button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #134978;
+    color: white;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.bills button:hover, .bills-item button:hover {
+    background-color: white;
+    color: #134978;
+    border: 1px solid #134978;
+}
+
+
+.bills-payment {
+    text-align: center;
+    padding: 10px;
+    margin: 10px;
+}
+
+.bills-payment h3 {
+    font-weight: 500;
+}
+
+.bills-payment select {
+    padding: 10px;
+    width: 20%;
+    outline: none;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+
+@media print {
+    body {
+        visibility: hidden;
+    }
+    .bill-body {
+        visibility: visible;
+        position: absolute;
+        left: 0;
+        top: 0;
+        box-shadow: none;
+    }
+}

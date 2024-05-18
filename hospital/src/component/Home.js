@@ -8,6 +8,7 @@ import { useEffect,useState } from 'react'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faAddressCard} from '@fortawesome/free-regular-svg-icons'
 import {faFile} from '@fortawesome/free-regular-svg-icons'
+import {faFileInvoice} from '@fortawesome/free-solid-svg-icons'
 import { toast } from 'wc-toast'
 // import { faUpload } from '@fortawesome/free-solid-svg-icons'
 
@@ -35,27 +36,27 @@ const Home = () => {
 
 
     const handlePatient = () => {
-        if (auth) {
-            navigate('/form');
-        } else {
-            toast.error(msg);
-        }
+        // if (auth) {
+            navigate('/formsz');
+        // } else {
+        //     toast.error(msg);
+        // }
     }
     
     const handleView=()=>{
-        if(auth){
+        // if(auth){
             navigate('/records')
-        }else{
-            toast.error(msg)
-        }
+        // }else{
+        //     toast.error(msg)
+        // }
     }
-    // const handleUpload = () =>{
-    //     if(auth){
-    //         navigate('/upload')
-    //     }else{
-    //         toast.error(msg)
-    //     }
-    // }
+    const handleBilling=()=>{
+        // if(auth){
+            navigate('/billing')
+        // }else{
+        //     toast.error(msg)
+        // }
+    }
   return (
     <div>
         <div className="main-content">
@@ -74,12 +75,12 @@ const Home = () => {
                         <h5>View Patient Records</h5>
                     </button>
                 </div>
-                {/* <div className="box upload-box">
-                    <button onClick={handleUpload}>
-                    <FontAwesomeIcon className='icon-file' icon={faUpload} />
-                        <h5>upload Files</h5>
+                <div className="box upload-box">
+                    <button onClick={handleBilling}>
+                    <FontAwesomeIcon className='icon-file' icon={faFileInvoice} />
+                        <h5>Billing</h5>
                     </button>
-                </div> */}
+                </div>
             </div>
         </div>
     </div>

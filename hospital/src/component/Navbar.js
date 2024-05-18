@@ -4,9 +4,9 @@ import './Navbar.css'
 import { NavLink, useNavigate } from 'react-router-dom'
 
 
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faUser} from '@fortawesome/free-regular-svg-icons'
-import {faRightFromBracket} from '@fortawesome/free-solid-svg-icons'
+// import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+// import {faUser} from '@fortawesome/free-regular-svg-icons'
+// import {faRightFromBracket} from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
 
 const Header = () => {
