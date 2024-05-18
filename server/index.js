@@ -78,6 +78,16 @@ app.get('/records', (req,res)=>{
     })
 })
 
+app.get('/bill', (req, res) => {
+    const sql = "SELECT `names`, `id`, `age`, `contact`, `gender` FROM `patientreports` WHERE id=?";
+    const id = req.query.id; 
+
+    db.query(sql, [id], (err, results) => {
+        if (err) return res.json({ Message: "Error inside server" });
+        return res.json(results);
+    });
+});
+
 
 app.get('/latest-pid', (req, res) => {
     const sql = 'SELECT MAX(`id`) as max_id FROM `patientreports`';
