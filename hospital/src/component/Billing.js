@@ -96,7 +96,6 @@ const Billing = () => {
                             value={mobile}
                             onChange={(e) => setMobile(e.target.value)}
                         />
-                        <button type="submit" className="btn btn-primary">Next</button>
                     </form>
                 </div>
             )}
