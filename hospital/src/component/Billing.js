@@ -3,7 +3,6 @@ import './Billing.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-
 const Billing = () => {
     const [data, setData] = useState({});
     const [id, setId] = useState('');
@@ -14,8 +13,13 @@ const Billing = () => {
     const [total, setTotal] = useState(0);
     const [currentDateTime, setCurrentDateTime] = useState('');
     const [paymentType, setPaymentType] = useState('');
+    const [patientType, setPatientType] = useState('');
+    const [name, setName] = useState('');
+    const [age, setAge] = useState('');
+    const [gender, setGender] = useState('');
+    const [mobile, setMobile] = useState('');
 
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
     useEffect(() => {
         const date = new Date();
@@ -50,24 +54,67 @@ const Billing = () => {
 
     const PrintBill = () => {
         window.print();
-        navigate('/')
+        navigate('/');
     };
 
     return (
         <div>
             <div className='bills'>
-                <form onSubmit={(e) => { e.preventDefault(); handleId(); }}>
-                    <h3>PID</h3>
-                    <input
-                        placeholder='Enter PID'
-                        required
-                        disabled={disabled}
-                        value={id}
-                        onChange={(e) => setId(e.target.value)}
-                    />
-                    <button type="submit" className="btn btn-primary">Next</button>
-                </form>
+                <h3>Select Patient Type</h3>
+                <select value={patientType} onChange={(e) => setPatientType(e.target.value)}>
+                    <option value="">Select Patient Type</option>
+                    <option value="OP">OP</option>
+                    <option value="INP">INP</option>
+                </select>
             </div>
+            {patientType === "OP" && (
+                <div className='bills'>
+                    <form onSubmit={(e) => { e.preventDefault(); setDisabled(true); }}>
+                        <h3>Enter Patient Details</h3>
+                        <input
+                            placeholder='Enter Name'
+                            required
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                        />
+                        <input
+                            placeholder='Enter Age'
+                            required
+                            type='number'
+                            value={age}
+                            onChange={(e) => setAge(e.target.value)}
+                        />
+                        <input
+                            placeholder='Enter Gender'
+                            required
+                            value={gender}
+                            onChange={(e) => setGender(e.target.value)}
+                        />
+                        <input
+                            placeholder='Enter Mobile'
+                            required
+                            value={mobile}
+                            onChange={(e) => setMobile(e.target.value)}
+                        />
+                        <button type="submit" className="btn btn-primary">Next</button>
+                    </form>
+                </div>
+            )}
+            {patientType === "INP" && (
+                <div className='bills'>
+                    <form onSubmit={(e) => { e.preventDefault(); handleId(); }}>
+                        <h3>PID</h3>
+                        <input
+                            placeholder='Enter PID'
+                            required
+                            disabled={disabled}
+                            value={id}
+                            onChange={(e) => setId(e.target.value)}
+                        />
+                        <button type="submit" className="btn btn-primary">Next</button>
+                    </form>
+                </div>
+            )}
             <div className='bills-item'>
                 <form onSubmit={(e) => { e.preventDefault(); handleItems(); }}>
                     <h3>Enter Item Details</h3>
@@ -117,26 +164,48 @@ const Billing = () => {
                         </div>
                     </div>
                     <div className="pat-details">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>ID</th>
-                                    <th>Age</th>
-                                    <th>Gender</th>
-                                    <th>Mobile</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>{data.names}</td>
-                                    <td>{data.id}</td>
-                                    <td>{data.age}</td>
-                                    <td>{data.gender}</td>
-                                    <td>{data.contact}</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        {patientType === "OP" && (
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Age</th>
+                                        <th>Gender</th>
+                                        <th>Mobile</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>{name}</td>
+                                        <td>{age}</td>
+                                        <td>{gender}</td>
+                                        <td>{mobile}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        )}
+                        {patientType === "INP" && (
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>ID</th>
+                                        <th>Age</th>
+                                        <th>Gender</th>
+                                        <th>Mobile</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>{data.names}</td>
+                                        <td>{data.id}</td>
+                                        <td>{data.age}</td>
+                                        <td>{data.gender}</td>
+                                        <td>{data.contact}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        )}
                     </div>
                     <div className="payment-type">
                         <h3>Payment Type: {paymentType}</h3>
