@@ -30,7 +30,7 @@ const Record = () => {
                             <tr>
                                 <th>Patient ID</th>
                                 <th>Name</th>
-                                <th>Date Of Birth</th>
+                                <th>Age</th>
                                 <th>Contact No.</th>
                                 <th>Date Added</th>
                                 {/* <th>Action</th> */}
