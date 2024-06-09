@@ -65,22 +65,22 @@ const Billing = () => {
     };
 
     const PrintBill = () => {
-        axios.post('http://localhost:3001/amount', { total })
-            .then(response => {
-                console.log('Total amount saved:', response.data);
+        // axios.post('http://localhost:3001/amount', { total })
+        //     .then(response => {
+        //         console.log('Total amount saved:', response.data);
                 window.print();
                 navigate('/');
-            })
-            .catch(error => {
-                console.error('Error saving total amount:', error);
-            });
+            // })
+            // .catch(error => {
+            //     console.error('Error saving total amount:', error);
+            // });
     };
 
     return (
         <div>
-            <div className='bills'>
-                <h3>Today's Income: {totalret.amount}.00</h3>
-            </div>
+            // <div className='bills'>
+            //     <h3>Today's Income: {totalret.amount}.00</h3>
+            // </div>
             <div className='bills'>
                 <h3>Select Patient Type</h3>
                 <select value={patientType} onChange={(e) => setPatientType(e.target.value)}>
