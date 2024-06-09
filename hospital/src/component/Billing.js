@@ -78,9 +78,6 @@ const Billing = () => {
 
     return (
         <div>
-            // <div className='bills'>
-            //     <h3>Today's Income: {totalret.amount}.00</h3>
-            // </div>
             <div className='bills'>
                 <h3>Select Patient Type</h3>
                 <select value={patientType} onChange={(e) => setPatientType(e.target.value)}>
