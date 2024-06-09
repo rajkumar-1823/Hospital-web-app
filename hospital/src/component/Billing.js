@@ -18,8 +18,16 @@ const Billing = () => {
     const [age, setAge] = useState('');
     const [gender, setGender] = useState('');
     const [mobile, setMobile] = useState('');
+    const [totalret,setTotalret] = useState([]);
 
     const navigate = useNavigate();
+    const LoadAmount = () => {
+        axios.get(`http://localhost:3001/totalAdd`)
+            .then(res => {
+                setTotalret(res.data[0]);
+            })
+            .catch(err => console.log(err));
+    }
 
     useEffect(() => {
         const date = new Date();
@@ -33,6 +41,10 @@ const Billing = () => {
             minute: '2-digit'
         });
         setCurrentDateTime(`${formattedDate} ${formattedTime}`);
+    }, []);
+
+    useEffect(() => {
+        LoadAmount();
     }, []);
 
     const handleId = () => {
@@ -53,12 +65,22 @@ const Billing = () => {
     };
 
     const PrintBill = () => {
-        window.print();
-        navigate('/');
+        axios.post('http://localhost:3001/amount', { total })
+            .then(response => {
+                console.log('Total amount saved:', response.data);
+                window.print();
+                navigate('/');
+            })
+            .catch(error => {
+                console.error('Error saving total amount:', error);
+            });
     };
 
     return (
         <div>
+            <div className='bills'>
+                <h3>Today's Income: {totalret.amount}.00</h3>
+            </div>
             <div className='bills'>
                 <h3>Select Patient Type</h3>
                 <select value={patientType} onChange={(e) => setPatientType(e.target.value)}>
