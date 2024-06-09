@@ -88,6 +88,14 @@ app.get('/bill', (req, res) => {
     });
 });
 
+app.get('/totalAdd', (req, res) => {
+    const sql = "SELECT `amount` FROM `billing` WHERE id=1";
+
+    db.query(sql, (err, results) => {
+        if (err) return res.json({ Message: "Error inside server" });
+        return res.json(results);
+    });
+});
 
 app.get('/latest-pid', (req, res) => {
     const sql = 'SELECT MAX(`id`) as max_id FROM `patientreports`';
@@ -134,13 +142,25 @@ app.post('/reports', (req, res)=>{
 })
 
 
-app.delete('/delete/:id', (req, res) => {
-    const sql = "DELETE FROM patientreports WHERE id = ?";
-    const id = req.params.id;
+app.post('/amount', (req, res) => {
+    const total = req.body.total;
+    const sqlGet = "SELECT amount FROM billing WHERE id = 1";  // Assuming you have a single record or use a specific ID
+    const sqlUpdate = "UPDATE billing SET amount = amount + ? WHERE id = 1";
 
-    db.query(sql, [id], (err, result) => {
-        if (err) return res.json({ Message: "Server side error" });
-        return res.json(result);
+    db.query(sqlGet, (err, result) => {
+        if (err) {
+            console.error("Error fetching current amount:", err);
+            return res.status(500).json({ message: "Error inside server", error: err.message });
+        }
+
+        db.query(sqlUpdate, [total], (err, updateResult) => {
+            if (err) {
+                console.error("Error updating amount:", err);
+                return res.status(500).json({ message: "Error inside server", error: err.message });
+            }
+            console.log("Amount updated successfully");
+            res.status(200).json({ message: "Amount updated successfully", result: updateResult });
+        });
     });
 });
 
