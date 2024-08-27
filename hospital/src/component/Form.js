@@ -86,6 +86,9 @@ const Form = () => {
 
         //Serology
         CRP:null,
+        HbsAg:'',
+        AntiHCV:'',
+        HIV:'',
 
         //doc name
         doc_name:'',
@@ -514,6 +517,31 @@ const Form = () => {
                                     <label>CRP</label>
                                     <input type="number" min="0" 
         max="5000" step="0.01"name="CRP" onChange={handleChange}/>
+                                </div>
+                                <div className="fields-all2">
+                                    <label>HbsAg</label>
+                                    <select className="select-option2"  name="HbsAg" onChange={handleChange}  required>
+                                        <option>Select</option>
+                                        <option value="Positive" >Positive</option>
+                                        <option value="Negative">Negative</option>
+                                    </select>
+                                </div>
+
+                                <div className="fields-all2">
+                                    <label>AntiHCV</label>
+                                    <select className="select-option2"  name="AntiHCV" onChange={handleChange}  required>
+                                        <option>Select</option>
+                                        <option value="Reactive" >Reactive</option>
+                                        <option value="Non-Reactive">Non-Reactive</option>
+                                    </select>
+                                </div>
+                                <div className="fields-all2">
+                                    <label>HIV</label>
+                                    <select className="select-option2"  name="HIV" onChange={handleChange}  required>
+                                        <option>Select</option>
+                                        <option value="Reactive" >Reactive</option>
+                                        <option value="Non-Reactive">Non-Reactive</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
