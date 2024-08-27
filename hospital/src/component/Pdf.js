@@ -66,7 +66,7 @@ const Pdf = () => {
 
     const renel = formData.Blood_Area || formData.Serum_Creatinine || formData.Serum_Uricacid;
 
-    const Serology = formData.CRP;
+    const Serology = formData.CRP || formData.HbsAg || formData.AntiHCV || formData.HIV;
 
     const Thyroid = formData.T4 || formData.T3 || formData.freeT3 || formData.freeT4 || formData.TSH;
 
@@ -623,6 +623,24 @@ const Pdf = () => {
                             <td>{formData.CRP}</td>
                             <td>&lt;1</td> 
                             <td>mg/dL</td>
+                        </tr> }
+                         {formData.HbsAg && <tr>
+                            <td>HbsAg</td>
+                            <td>{formData.HbsAg}</td>
+                            <td>-</td> 
+                            <td>-</td>
+                        </tr> }
+                        {formData.AntiHCV && <tr>
+                            <td>AntiHCV</td>
+                            <td>{formData.AntiHCV}</td>
+                            <td>-</td> 
+                            <td>-</td>
+                        </tr> }
+                        {formData.HIV && <tr>
+                            <td>HIV</td>
+                            <td>{formData.HIV}</td>
+                            <td>-</td> 
+                            <td>-</td>
                         </tr> }
 
 
