@@ -144,7 +144,7 @@ app.post('/reports', (req, res)=>{
 
 app.post('/amount', (req, res) => {
     const total = req.body.total;
-    const sqlGet = "SELECT amount FROM billing WHERE id = 1";  // Assuming you have a single record or use a specific ID
+    const sqlGet = "SELECT amount FROM billing WHERE id = 1";  
     const sqlUpdate = "UPDATE billing SET amount = amount + ? WHERE id = 1";
 
     db.query(sqlGet, (err, result) => {
@@ -161,6 +161,31 @@ app.post('/amount', (req, res) => {
             console.log("Amount updated successfully");
             res.status(200).json({ message: "Amount updated successfully", result: updateResult });
         });
+    });
+});
+
+app.listen(port, () => {
+    console.log(`Example app listening on port ${port}`)
+  })
+
+
+  // DELETE route to delete a record by ID
+app.delete('/deleterecords/:id', (req, res) => {
+    const { id } = req.params;
+
+    const sql = "DELETE FROM `patientreports` WHERE `id` = ?";
+    
+    db.query(sql, [id], (err, result) => {
+        if (err) {
+            console.error('Error deleting record:', err);
+            return res.status(500).json({ Message: "Error deleting record" });
+        }
+
+        if (result.affectedRows === 0) {
+            return res.status(404).json({ Message: "Record not found" });
+        }
+
+        res.status(200).json({ Message: "Record deleted successfully" });
     });
 });
 
