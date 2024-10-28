@@ -89,7 +89,7 @@ const Home = () => {
                 <div className="box pharmacy-box">
                     <button onClick={handlePhar}>
                     <FontAwesomeIcon className='icon-file' icon={faPrescriptionBottleMedical} />
-                        <h5>Pharmacy</h5>
+                        <h5>Pharmacy </h5>
                     </button>
                 </div>
             </div>
