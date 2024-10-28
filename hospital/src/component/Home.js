@@ -9,6 +9,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faAddressCard} from '@fortawesome/free-regular-svg-icons'
 import {faFile} from '@fortawesome/free-regular-svg-icons'
 import {faFileInvoice} from '@fortawesome/free-solid-svg-icons'
+import {faPrescriptionBottleMedical} from '@fortawesome/free-solid-svg-icons'
 import { toast } from 'wc-toast'
 // import { faUpload } from '@fortawesome/free-solid-svg-icons'
 
@@ -57,6 +58,10 @@ const Home = () => {
         //     toast.error(msg)
         // }
     }
+    const handlePhar = () => {
+        // Opens the link in a new tab
+        window.open('https://pharmacy.42web.io', '_blank');
+    };
   return (
     <div>
         <div className="main-content">
@@ -79,6 +84,12 @@ const Home = () => {
                     <button onClick={handleBilling}>
                     <FontAwesomeIcon className='icon-file' icon={faFileInvoice} />
                         <h5>Billing</h5>
+                    </button>
+                </div>
+                <div className="box pharmacy-box">
+                    <button onClick={handlePhar}>
+                    <FontAwesomeIcon className='icon-file' icon={faPrescriptionBottleMedical} />
+                        <h5>Pharmacy</h5>
                     </button>
                 </div>
             </div>
