@@ -1,8 +1,6 @@
 import React  from 'react'
 import './Home.css'
 import { useNavigate } from 'react-router-dom'
-import axios from 'axios'
-import { useEffect,useState } from 'react'
 
 
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
@@ -10,27 +8,27 @@ import {faAddressCard} from '@fortawesome/free-regular-svg-icons'
 import {faFile} from '@fortawesome/free-regular-svg-icons'
 import {faFileInvoice} from '@fortawesome/free-solid-svg-icons'
 import {faPrescriptionBottleMedical} from '@fortawesome/free-solid-svg-icons'
-import { toast } from 'wc-toast'
+
 // import { faUpload } from '@fortawesome/free-solid-svg-icons'
 
 const Home = () => { 
     
-    const [auth, setAuth] = useState(false);
-    const msg = "Please Login";
+    // const [auth, setAuth] = useState(false);
+    // const msg = "Please Login";
 
-    useEffect(() => {
-        axios.get('https://hospital-web-app-aqvg.vercel.app/protected') // Endpoint to check authentication status
-            .then(res => {
-                if (res.data.Status === 'Success') {
-                    setAuth(true); 
-                } else {
-                    console.log(res.data.Message);
-                }
-            })
-            .catch(error => {
-                console.error("Error fetching data:", error);
-            });
-    }, []);
+    // useEffect(() => {
+    //     axios.get('https://hospital-web-app-aqvg.vercel.app/protected') // Endpoint to check authentication status
+    //         .then(res => {
+    //             if (res.data.Status === 'Success') {
+    //                 // setAuth(true); 
+    //             } else {
+    //                 console.log(res.data.Message);
+    //             }
+    //         })
+    //         .catch(error => {
+    //             console.error("Error fetching data:", error);
+    //         });
+    // }, []);
 
 
     const navigate = useNavigate()

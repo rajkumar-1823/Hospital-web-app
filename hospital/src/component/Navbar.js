@@ -1,48 +1,47 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import logo from './logo.png'
 import './Navbar.css'
-import { NavLink, useNavigate } from 'react-router-dom'
+// import { useNavigate } from 'react-router-dom'
 
 
 // import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 // import {faUser} from '@fortawesome/free-regular-svg-icons'
 // import {faRightFromBracket} from '@fortawesome/free-solid-svg-icons'
-import axios from 'axios'
 
 const Header = () => {
 
-    const[auth,setAuth] = useState(false)
-    const[name,setName] = useState('')
+    // const[auth,setAuth] = useState(false)
+    // const[name,setName] = useState('')
     
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
 
     
-    axios.defaults.withCredentials = true;
-    useEffect(() => {
-        axios.get('https://hospital-web-app-aqvg.vercel.app')
-            .then(res => {
-                if (res.data.Status === 'Success') {
-                    setAuth(true)
-                    setName(res.data.name); 
-                    console.log(res.data.name)
-                } else {
-                    console.log(res.data.Message);
-                }
-            })
-            .catch(error => {
-                console.error("Error fetching data:", error);
+    // axios.defaults.withCredentials = true; 
+    // useEffect(() => {
+    //     axios.get('https://hospital-web-app-aqvg.vercel.app')
+    //         .then(res => {
+    //             if (res.data.Status === 'Success') {
+    //                 setAuth(true)
+    //                 setName(res.data.name); 
+    //                 console.log(res.data.name)
+    //             } else {
+    //                 console.log(res.data.Message);
+    //             }
+    //         })
+    //         .catch(error => {
+    //             console.error("Error fetching data:", error);
                 
-            });
-    }, []);
+    //         });
+    // }, []);
     
-    const handleLogout=()=>{
-      axios.get('https://hospital-web-app-hm9w.vercel.app/logout')
-      .then(res=>{
-        localStorage.clear();
-        navigate('/')
-        window.location.reload(true)
-      }).catch(err=>console.log(err))
-    }
+    // const handleLogout=()=>{
+    //   axios.get('https://hospital-web-app-hm9w.vercel.app/logout')
+    //   .then(res=>{
+    //     localStorage.clear();
+    //     navigate('/')
+    //     window.location.reload(true)
+    //   }).catch(err=>console.log(err))
+    // }
 
   return (
     <div>

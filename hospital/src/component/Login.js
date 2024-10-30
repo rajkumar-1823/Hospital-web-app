@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import './Login.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { toast } from 'wc-toast';
 
 const Login = () => {
     const navigate = useNavigate();
@@ -25,7 +24,7 @@ const Login = () => {
                     navigate('/');
                     window.location.reload(true);
                 } else {
-                    toast.error(res.data.Message);
+                    
                 }
             })
             .catch(err => console.log(err));
@@ -34,7 +33,7 @@ const Login = () => {
 
     return (
         <div className='body3'>
-            <wc-toast></wc-toast>
+            
             <div className="container">
                 <form onSubmit={handleLogin}>
                     <div className="box2">

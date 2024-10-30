@@ -4,7 +4,8 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons'
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons'
 import './Record.css';
 import axios from 'axios';
-import { toast } from 'wc-toast'
+import { toast, ToastContainer } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
 
 const Record = () => {
     const [personalData, setPersonalData] = useState([]);
@@ -32,10 +33,14 @@ const Record = () => {
         if(isConfirmed){
             axios.delete(`http://hospital-web-app-aqvg.vercel.app/deleterecords/${id}`)
             .then(res=>{
-                toast.success('Record Deleted Successfully')
+                toast.success("Record Deleted Successfully", {
+                    position: "top-center"
+                  });
             })
             .catch(err => {
-                toast.error(err)
+                toast.error(err, {
+                    position: "top-center"
+                  });
             });
         }
     }
@@ -47,7 +52,7 @@ const Record = () => {
     return (
         <div>
             <div className='body'>
-            <wc-toast></wc-toast>
+            <ToastContainer />
                 <div className="patient-record">
                     <div className="record-txt">
                         <h3>Patients Record Table</h3>

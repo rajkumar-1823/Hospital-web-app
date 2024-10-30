@@ -18,16 +18,16 @@ const Billing = () => {
     const [age, setAge] = useState('');
     const [gender, setGender] = useState('');
     const [mobile, setMobile] = useState('');
-    const [totalret,setTotalret] = useState([]);
+    // const [totalret,setTotalret] = useState([]);
 
     const navigate = useNavigate();
-    const LoadAmount = () => {
-        axios.get(`http://localhost:3001/totalAdd`)
-            .then(res => {
-                setTotalret(res.data[0]);
-            })
-            .catch(err => console.log(err));
-    }
+    // const LoadAmount = () => {
+    //     axios.get(`http://localhost:3001/totalAdd`)
+    //         .then(res => {
+    //             setTotalret(res.data[0]);
+    //         })
+    //         .catch(err => console.log(err));
+    // }
 
     useEffect(() => {
         const date = new Date();
@@ -43,9 +43,9 @@ const Billing = () => {
         setCurrentDateTime(`${formattedDate} ${formattedTime}`);
     }, []);
 
-    useEffect(() => {
-        LoadAmount();
-    }, []);
+    // useEffect(() => {
+    //     LoadAmount();
+    // }, []);
 
     const handleId = () => {
         axios.get(`https://hospital-web-app-aqvg.vercel.app/bill?id=${id}`)

@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import './Form.css'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom'
-import { toast } from 'wc-toast'
+import toast, { Toaster } from 'react-hot-toast';
+
 
 
 const Form = () => {
@@ -113,14 +114,17 @@ const Form = () => {
                     axios.post('https://hospital-web-app-aqvg.vercel.app/reports', formData)
                         .then(res => {
                             navigate('/pdf', {state : {formData : formData}})
-                            toast.success('Data Added Successfully')
+                            toast.success("Data Added Successfully", {
+                                position: "top-center"
+                              });
+                              toast.success('Data Added Successfully');
                         })
                         .catch(err => toast.error(err));
                 }else{
-                    toast.error('Invalid age')
+                      toast.error('Invalid age');
                 }
             }else{
-                toast.error('Invalid Contact Number');
+                toast.error('Invalid Phone Number');
             }
         }
     };
@@ -136,7 +140,7 @@ const Form = () => {
   return (
     <div>
         <div className='body1'>
-            <wc-toast></wc-toast>
+            <Toaster />
             <div className="main-form">
                 <form onSubmit={handleSubmit}>
                     <div className="txt-field">
