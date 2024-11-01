@@ -70,7 +70,8 @@ app.get('/logout', (req, res)=>{
 })
 
 app.get('/records', (req,res)=>{
-    const sql = "SELECT `id`, `names`, `age`, `contact`, DATE_FORMAT(`date_added`, '%Y-%m-%d') AS `date_added` FROM `patientreports`";
+    const sql = "SELECT `id`, `names`, `age`, `contact`, DATE_FORMAT(`date_added`, '%Y-%m-%d') AS `date_added` FROM `patientreports` ORDER BY `date_added` DESC";
+
 
     db.query(sql, (err, results)=>{
         if(err) return res.json({Message:"Error inside server"})
