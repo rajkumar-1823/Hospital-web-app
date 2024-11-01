@@ -73,7 +73,7 @@ const Record = () => {
                                         <th>Age</th>
                                         <th>Contact No</th>
                                         <th>Date Added</th>
-                                        // <th>Action</th>
+                                        
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -84,12 +84,7 @@ const Record = () => {
                                             <td>{data.age}</td>
                                             <td>{data.contact}</td>
                                             <td>{data.date_added}</td>
-                                            // <td>
-                                            //     <div className='action'>
-                                            //     <button className='btn-del' title='Delete' onClick={()=>handleDeleteRecord(data.id)} ><FontAwesomeIcon className='icon-del' icon={faTrash} /></button>
-                                            //     <button className='btn-del' title='Edit' onClick={handleEdit} ><FontAwesomeIcon className='icon-edit' icon={faPenToSquare} /></button>
-                                            //     </div>
-                                            // </td>
+                                            
                                         </tr>
                                     ))}
                                 </tbody>
