@@ -15,7 +15,7 @@ const Record = () => {
     
 
     useEffect(() => {
-        axios.get('http://hospital-web-app-aqvg.vercel.app/records')
+        axios.get('https://hospital-web-app-aqvg.vercel.app/records')
             .then(res => {
                 setPersonalData(res.data);
                 setLoading(false);
